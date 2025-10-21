@@ -4,6 +4,8 @@
     "title": "Auto Sort Chest",
     "author": "Carlos Miguel Webber",
     "description": "Adds a button to automatically sort chests when opened.",
-    "factorio_version": ">=1.1.0",
-    "dependencies": []
+    "factorio_version": "2.0",
+    "dependencies": [
+        "base >= 2.0"
+    ]
 }
