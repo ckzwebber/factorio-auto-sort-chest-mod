@@ -9,17 +9,21 @@ local function is_container(entity)
 end
 
 local function create_button_for_player(player)
-  if player.gui.top[GUI_NAME] then return end
-  player.gui.top.add{
+  if player.gui.relative[GUI_NAME] then return end
+  player.gui.relative.add{
     type = "button",
     name = GUI_NAME,
-    caption = "Auto-sort"   
+    caption = "Auto-sort",
+    anchor = {
+      gui = defines.relative_gui_type.container_gui,
+      position = defines.relative_gui_position.top
+    }
   }
 end
 
 local function destroy_button_for_player(player)
-  if player.gui.top[GUI_NAME] then
-    player.gui.top[GUI_NAME].destroy()
+  if player.gui.relative[GUI_NAME] then
+    player.gui.relative[GUI_NAME].destroy()
   end
 end
 
