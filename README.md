@@ -72,8 +72,7 @@ factorio-auto-sort-chest-mod/
 3. Coloque dentro dela os arquivos:
    - `info.json`
    - `control.lua`
-4. (Opcional) Compacte a pasta como `.zip` se quiser distribuir o mod.
-5. Inicie o jogo e **ative o mod** na tela inicial do Factorio.
+4. Inicie o jogo e **ative o mod** na tela inicial do Factorio.
 
 ---
 
@@ -109,7 +108,6 @@ factorio-auto-sort-chest-mod/
 ## 👤 Autor
 
 Desenvolvido por [Carlos Miguel Webber](https://www.linkedin.com/in/cmiguelwm/).  
-Ideia, código e documentação por amor ao caos organizado dos baús de Factorio 💼🪣
 
 ---
 
@@ -119,8 +117,6 @@ Licença Poética 🪶
 
 > Você pode remixar, modificar, distribuir e aprender com este código,  
 > contanto que mantenha a alma de organização e compartilhe o crédito.
->
-> “O universo é caótico — nossos baús não precisam ser.”
 
 ---
 
