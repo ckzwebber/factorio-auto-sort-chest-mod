@@ -1,127 +1,38 @@
-# 🧰 Factorio Auto Sort Chest Mod
+# Factorio Auto Sort Chest
 
 [![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)](https://www.lua.org/)
-[![Factorio](https://img.shields.io/badge/Game-Factorio-FAB71C?style=for-the-badge&logo=factorio&logoColor=white)](https://factorio.com/)
-[![Modding API](https://img.shields.io/badge/API-Factorio_Modding-blue?style=for-the-badge)](https://wiki.factorio.com/Modding)
+[![Factorio](https://img.shields.io/badge/Factorio-FAB71C?style=for-the-badge&logo=factorio&logoColor=white)](https://factorio.com/)
 
-Bem-vindo ao repositório **factorio-auto-sort-chest-mod**!  
-Este mod adiciona um **botão “Auto-sort”** sempre que você abre um baú (ou container com inventário), permitindo **organizar automaticamente** o conteúdo por tipo de item.
+Mod para Factorio que adiciona um botão "Auto-sort" ao abrir qualquer baú, reorganizando o inventário em ordem alfabética por tipo de item.
 
----
+## Como funciona
 
-## ✨ Funcionalidades
+O mod registra listeners nos eventos de GUI do Factorio (`on_gui_opened`, `on_gui_closed`, `on_gui_click`). Quando o jogador abre um container com inventário, o mod cria dinamicamente um botão na interface. Ao clicar, o script coleta todos os itens, esvazia o inventário e reinsere em ordem alfabética. Ao fechar o container, o botão é removido automaticamente.
 
-- ✅ Adiciona um botão **“Auto-sort”** na interface ao abrir um baú.
-- ✅ Reorganiza automaticamente os itens do inventário em **ordem alfabética**.
-- ✅ Compatível com baús vanilla e containers equivalentes.
-- ✅ Não altera a jogabilidade — apenas organiza o conteúdo visualmente.
-- ✅ Código limpo e seguindo o padrão oficial de modding do Factorio.
+Todo o ciclo de vida (criação, ação, limpeza) acontece em `control.lua` usando a API de runtime do Factorio.
 
----
-
-## 🧩 Como Funciona
-
-O mod usa eventos da API de runtime do Factorio para detectar quando o jogador abre uma interface de container:
-
-1. **Detecta evento** `on_gui_opened` → verifica se a entidade aberta tem inventário.
-2. **Cria botão GUI** (“Auto-sort”) dinamicamente em `player.gui.top`.
-3. **Ao clicar**, o script:
-   - Coleta todos os itens do inventário.
-   - Esvazia o baú.
-   - Reinsere os itens, agrupados e ordenados por nome.
-4. **Ao fechar o baú**, o botão é removido automaticamente.
-
----
-
-## 🛠️ Tecnologias e Conceitos
-
-- **Linguagem:** [Lua 5.2+](https://www.lua.org/)
-- **API:** [Factorio Modding API](https://lua-api.factorio.com/latest/)
-- **Eventos:** `on_gui_opened`, `on_gui_closed`, `on_gui_click`
-- **Classes usadas:** `LuaPlayer`, `LuaEntity`, `LuaInventory`
-- **Boas práticas:** código modular, uso de `pcall` e verificações `valid`.
-
----
-
-## 📁 Estrutura do Mod
+## Estrutura
 
 ```
-factorio-auto-sort-chest-mod/
-│
-├── info.json        # Metadados do mod (nome, versão, descrição, dependências)
-├── control.lua      # Script principal (lógica do mod)
-└── locale/
-    └── en/
-        └── locale.cfg   # (Opcional) Localização e strings
+├── info.json       # Metadados do mod (nome, versão, dependências)
+└── control.lua     # Lógica principal (eventos, sorting, GUI)
 ```
 
----
+## Instalação
 
-## ⚙️ Instalação
+Copiar a pasta do mod para o diretório de mods do Factorio:
 
-### Método 1 – Manual
+- Windows: `%APPDATA%/Factorio/mods/`
+- Linux: `~/.factorio/mods/`
+- macOS: `~/Library/Application Support/factorio/mods/`
 
-1. Localize sua pasta de mods do Factorio:
-   - **Windows:** `%APPDATA%/Factorio/mods`
-   - **Linux:** `~/.factorio/mods`
-   - **Mac:** `~/Library/Application Support/factorio/mods`
-2. Crie uma nova pasta:
-   ```
-   factorio-auto-sort-chest-mod/
-   ```
-3. Coloque dentro dela os arquivos:
-   - `info.json`
-   - `control.lua`
-4. Inicie o jogo e **ative o mod** na tela inicial do Factorio.
+Ativar o mod na tela inicial do jogo.
 
----
+## Referências
 
-## 🚀 Como Usar
+- [Factorio Modding API](https://lua-api.factorio.com/latest/)
+- [Tutorial de Modding (Factorio Wiki)](https://wiki.factorio.com/Tutorial:Modding_tutorial/Gangsir)
 
-1. Abra qualquer baú (ou container compatível).
-2. Um botão **“Auto-sort”** aparecerá na parte superior da tela.
-3. Clique nele para **organizar o inventário automaticamente**.
-4. Feche o baú — o botão desaparecerá.
+## Licença
 
-> 💡 Dica: o script apenas reorganiza os itens. Nenhum item é perdido, alterado ou duplicado.
-
----
-
-## 💡 Exemplos de Expansão (para futuros updates)
-
-- 🔸 Suporte a vagões de carga e baús logísticos.
-- 🔸 Ordenação por categoria (`item.subgroup` ou `item.group`).
-- 🔸 Painel de preferências do jogador.
-- 🔸 Integração com outros mods de logística.
-
----
-
-## 🧪 Teste Rápido
-
-- Crie um mapa sandbox.
-- Dê a si mesmo alguns itens diferentes e um baú.
-- Misture os itens e clique em **Auto-sort**.
-- Veja a mágica acontecer ✨
-
----
-
-## 👤 Autor
-
-Desenvolvido por [Carlos Miguel Webber](https://www.linkedin.com/in/cmiguelwm/).  
-
----
-
-## 📜 Licença
-
-Licença Poética 🪶
-
-> Você pode remixar, modificar, distribuir e aprender com este código,  
-> contanto que mantenha a alma de organização e compartilhe o crédito.
-
----
-
-## 🧷 Referências
-
-- [Tutorial Oficial de Modding – Factorio Wiki](https://wiki.factorio.com/Tutorial:Modding_tutorial/Gangsir)
-- [Factorio Lua API Reference](https://lua-api.factorio.com/latest/)
-- [Docs de Eventos (`on_gui_opened`, `on_gui_click`)](https://lua-api.factorio.com/latest/events.html)
+MIT
