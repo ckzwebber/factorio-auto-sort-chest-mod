@@ -1,38 +1,38 @@
-# Factorio Auto Sort Chest
+# factorio-auto-sort-chest-mod
 
 [![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)](https://www.lua.org/)
 [![Factorio](https://img.shields.io/badge/Factorio-FAB71C?style=for-the-badge&logo=factorio&logoColor=white)](https://factorio.com/)
 
-Mod para Factorio que adiciona um botão "Auto-sort" ao abrir qualquer baú, reorganizando o inventário em ordem alfabética por tipo de item.
+Factorio mod that adds an "Auto-sort" button to any chest UI, reorganizing its inventory alphabetically by item type.
 
-## Como funciona
+## How it works
 
-O mod registra listeners nos eventos de GUI do Factorio (`on_gui_opened`, `on_gui_closed`, `on_gui_click`). Quando o jogador abre um container com inventário, o mod cria dinamicamente um botão na interface. Ao clicar, o script coleta todos os itens, esvazia o inventário e reinsere em ordem alfabética. Ao fechar o container, o botão é removido automaticamente.
+The mod registers listeners on Factorio's GUI runtime events (`on_gui_opened`, `on_gui_closed`, `on_gui_click`). When a player opens a container, a button is injected into the GUI. On click, the script collects all items, clears the inventory, and reinserts them in alphabetical order. When the container is closed, the button is removed automatically.
 
-Todo o ciclo de vida (criação, ação, limpeza) acontece em `control.lua` usando a API de runtime do Factorio.
+The full lifecycle — creation, action, cleanup — is handled in `control.lua` using the Factorio runtime API.
 
-## Estrutura
+## Structure
 
 ```
-├── info.json       # Metadados do mod (nome, versão, dependências)
-└── control.lua     # Lógica principal (eventos, sorting, GUI)
+info.json     # Mod metadata (name, version, dependencies)
+control.lua   # Core logic (events, sorting, GUI)
 ```
 
-## Instalação
+## Installation
 
-Copiar a pasta do mod para o diretório de mods do Factorio:
+Copy the mod folder to Factorio's mods directory:
 
 - Windows: `%APPDATA%/Factorio/mods/`
 - Linux: `~/.factorio/mods/`
 - macOS: `~/Library/Application Support/factorio/mods/`
 
-Ativar o mod na tela inicial do jogo.
+Then enable the mod from the game's main menu.
 
-## Referências
+## References
 
 - [Factorio Modding API](https://lua-api.factorio.com/latest/)
-- [Tutorial de Modding (Factorio Wiki)](https://wiki.factorio.com/Tutorial:Modding_tutorial/Gangsir)
+- [Modding Tutorial (Factorio Wiki)](https://wiki.factorio.com/Tutorial:Modding_tutorial/Gangsir)
 
-## Licença
+## License
 
 MIT
